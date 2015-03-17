@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # This program creates various DV videos to practice your editing. It requires
-MLT (Melt), and FFmpeg (Libav).
+# MLT (Melt), and FFmpeg (Libav).
 
 FONTFILE=/usr/share/fonts/TTF/VeraMono.ttf
 
