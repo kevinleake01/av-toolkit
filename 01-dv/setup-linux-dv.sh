@@ -68,6 +68,11 @@ ffmpeg -i 08-mandelbrot-0000.dv -vf lutrgb=r=0:b=0 -target pal-dv 08-mandelbrot-
 
 ffmpeg -i 08-mandelbrot-0000.dv -vf lutrgb=r=0:g=0 -target pal-dv 08-mandelbrot-0003.dv
 
+ffmpeg -f lavfi -i testsrc=r=30 \
+  -vf "drawtext=fontfile=$FONTFILE: \
+  fontsize=25: fontcolor=0xFFFFFF: text='%{pts\:hms}-----%{n}': box=1: boxcolor=0x000000@1" \
+  -target ntsc-dv -frames:v 1000 02-testsrc-0004.dv
+
 
 
 
