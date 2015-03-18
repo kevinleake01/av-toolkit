@@ -5,15 +5,15 @@
 
 FONTFILE=/usr/share/fonts/TTF/VeraMono.ttf
 
-ffmpeg -f lavfi -i smptebars \
+ffmpeg -f lavfi -i smptebars=r=30000/1001 \
   -vf "drawtext=fontfile=$FONTFILE: \
   fontsize=25: fontcolor=0xFFFFFF: text='%{pts\:hms}-----%{n}': box=1: boxcolor=0x000000@1" \
-  -target pal-dv -frames:v 1000 01-smptebars-0000.dv
+  -target ntsc-dv -frames:v 1000 01-smptebars-0000.dv
 
-ffmpeg -f lavfi -i smptehdbars \
+ffmpeg -f lavfi -i smptehdbars=r=30000/1001 \
   -vf "drawtext=fontfile=$FONTFILE: \
   fontsize=25: fontcolor=0xFFFFFF: text='%{pts\:hms}-----%{n}': box=1: boxcolor=0x000000@1" \
-  -target pal-dv -frames:v 1000 01-smptebars-0001.dv
+  -target ntsc-dv -frames:v 1000 01-smptebars-0001.dv
 
 ffmpeg -f lavfi -i testsrc \
   -vf "drawtext=fontfile=$FONTFILE: \
