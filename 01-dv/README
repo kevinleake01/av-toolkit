@@ -1,7 +1,7 @@
 There are 2 main DV video formats:
 
-DV-NTSC: 720x480 pixels @ 30 fps
-DV-PAL: 720x576 pixels @ 25 fps
+DV-PAL: 720x576 pixels @ 25 fps  (1000 frames = 40 Seconds = 144 MB)
+DV-NTSC: 720x480 @ 29.97 fps  (1000 frames = 33.33 Seconds = 120 MB)
 
 For more info about DV video see:
 
