@@ -62,3 +62,43 @@ ffmpeg -f lavfi -i mandelbrot=r=24000/1001 \
   fontsize=25: fontcolor=0xFFFFFF: text='': timecode='00\:00\:00\;00': r=30: box=1: boxcolor=0x000000@1" \
   -target film-dv -frames:v 1000 04-mandelbrot-0002.dv
 
+ffmpeg -f lavfi -i smptebars=r=50 \
+  -vf "drawtext=fontfile=$FONTFILE: \
+  fontsize=25: fontcolor=0xFFFFFF: text='': timecode='00\:00\:00\:00': r=50: box=1: boxcolor=0x000000@1" \
+  -target pal-dv50 -frames:v 1000 05-dv50-0000.dv
+
+ffmpeg -f lavfi -i smptebars=r=60000/1001 \
+  -vf "drawtext=fontfile=$FONTFILE: \
+  fontsize=25: fontcolor=0xFFFFFF: text='': timecode='00\:00\:00\;00': r=60: box=1: boxcolor=0x000000@1" \
+  -target ntsc-dv50 -frames:v 1000 05-dv50-0001.dv
+
+ffmpeg -f lavfi -i smptehdbars=r=50 \
+  -vf "drawtext=fontfile=$FONTFILE: \
+  fontsize=25: fontcolor=0xFFFFFF: text='': timecode='00\:00\:00\:00': r=50: box=1: boxcolor=0x000000@1" \
+  -target pal-dv50 -frames:v 1000 05-dv50-0002.dv
+
+ffmpeg -f lavfi -i smptehdbars=r=60000/1001 \
+  -vf "drawtext=fontfile=$FONTFILE: \
+  fontsize=25: fontcolor=0xFFFFFF: text='': timecode='00\:00\:00\;00': r=60: box=1: boxcolor=0x000000@1" \
+  -target ntsc-dv50 -frames:v 1000 05-dv50-0003.dv
+
+ffmpeg -f lavfi -i testsrc=r=50 \
+  -vf "drawtext=fontfile=$FONTFILE: \
+  fontsize=25: fontcolor=0xFFFFFF: text='': timecode='00\:00\:00\:00': r=50: box=1: boxcolor=0x000000@1" \
+  -target pal-dv50 -frames:v 1000 05-dv50-0004.dv
+
+ffmpeg -f lavfi -i testsrc=r=60000/1001 \
+  -vf "drawtext=fontfile=$FONTFILE: \
+  fontsize=25: fontcolor=0xFFFFFF: text='': timecode='00\:00\:00\;00': r=60: box=1: boxcolor=0x000000@1" \
+  -target ntsc-dv50 -frames:v 1000 05-dv50-0005.dv
+
+ffmpeg -f lavfi -i mandelbrot=r=50 \
+  -vf "drawtext=fontfile=$FONTFILE: \
+  fontsize=25: fontcolor=0xFFFFFF: text='': timecode='00\:00\:00\:00': r=50: box=1: boxcolor=0x000000@1" \
+  -target pal-dv50 -frames:v 1000 05-dv50-0006.dv
+
+ffmpeg -f lavfi -i mandelbrot=r=60000/1001 \
+  -vf "drawtext=fontfile=$FONTFILE: \
+  fontsize=25: fontcolor=0xFFFFFF: text='': timecode='00\:00\:00\;00': r=60: box=1: boxcolor=0x000000@1" \
+  -target ntsc-dv50 -frames:v 1000 05-dv50-0007.dv
+
