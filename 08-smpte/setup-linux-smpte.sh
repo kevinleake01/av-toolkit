@@ -112,25 +112,49 @@ ffmpeg -f lavfi -i mandelbrot=r=30000/1001 \
 
 melt -profile atsc_720p_25 -group in=0 out=1000 \
   count direction=up style=timecode sound=frame0 \
-  -consumer avformat:07-dv50-0008.mkv
+  -consumer avformat:07-atsc720p-0000.mkv
 
 melt -profile atsc_720p_2997 -group in=0 out=1000 \
   count direction=up style=timecode sound=frame0 \
-  -consumer avformat:06-dv50-0009.mkv
+  -consumer avformat:07-atsc720p-0001.mkv
 
 melt -profile atsc_720p_50 -group in=0 out=1000 \
   count direction=up style=timecode sound=frame0 \
-  -consumer avformat:07-720p1080i-0000.mov
+  -consumer avformat:07-atsc720p-0002.mkv
+
+melt -profile atsc_720p_5994 -group in=0 out=1000 \
+  count direction=up style=timecode sound=frame0 \
+  -consumer avformat:07-atsc720p-0003.mkv
 
 melt -profile atsc_1080i_50 -group in=0 out=1000 \
   count direction=up style=timecode sound=frame0 \
-  -consumer avformat:07-720p1080i-0001.mov
+  -consumer avformat:08-atsc1080i-0000.mkv
 
-melt -profile atsc_720p_50 -group in=0 out=1000 \
+melt -profile atsc_1080i_5994 -group in=0 out=1000 \
   count direction=up style=timecode sound=frame0 \
-  -consumer avformat:07-720p1080i-0002.mkv
+  -consumer avformat:08-atsc1080i-0001.mkv
 
-melt -profile atsc_1080i_50 -group in=0 out=1000 \
+melt -profile hdv_720_25p -group in=0 out=1000 \
   count direction=up style=timecode sound=frame0 \
-  -consumer avformat:07-720p1080i-0003.mkv
+  -consumer avformat:09-hdv720p-0000.mkv
+
+melt -profile hdv_720_30p -group in=0 out=1000 \
+  count direction=up style=timecode sound=frame0 \
+  -consumer avformat:09-hdv720p-0001.mkv
+
+melt -profile hdv_720_50p -group in=0 out=1000 \
+  count direction=up style=timecode sound=frame0 \
+  -consumer avformat:09-hdv720p-0002.mkv
+
+melt -profile hdv_720_60p -group in=0 out=1000 \
+  count direction=up style=timecode sound=frame0 \
+  -consumer avformat:09-hdv720p-0003.mkv
+
+melt -profile hdv_1080_50i -group in=0 out=1000 \
+  count direction=up style=timecode sound=frame0 \
+  -consumer avformat:10-hdv1080i-0000.mkv
+
+melt -profile hdv_1080_60i -group in=0 out=1000 \
+  count direction=up style=timecode sound=frame0 \
+  -consumer avformat:10-hdv1080i-0001.mkv
 
