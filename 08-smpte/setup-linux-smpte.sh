@@ -112,11 +112,11 @@ ffmpeg -f lavfi -i mandelbrot=r=30000/1001 \
 
 melt -profile atsc_720p_25 -group in=0 out=1000 \
   count direction=up style=timecode sound=frame0 \
-  -consumer avformat:06-dv50-0008.dv
+  -consumer avformat:07-dv50-0008.mkv
 
 melt -profile atsc_720p_2997 -group in=0 out=1000 \
   count direction=up style=timecode sound=frame0 \
-  -consumer avformat:06-dv50-0009.dv
+  -consumer avformat:06-dv50-0009.mkv
 
 melt -profile atsc_720p_50 -group in=0 out=1000 \
   count direction=up style=timecode sound=frame0 \
