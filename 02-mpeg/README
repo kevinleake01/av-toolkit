@@ -1,4 +1,14 @@
-MPEG website links:
+There are 6 main video formats of MPEG:
+
+VCD-PAL: 352x288 @ 25 fps
+SVCD-PAL: 480x576 @ 25 fps
+DVD-PAL: 720x576 @ 25 fps
+VCD-NTSC: 352x240 @ 29.97 fps
+SVCD-NTSC: 480x480 @ 29.97 fps
+DVD-NTSC: 720x480 @ 29.97 fps
+
+
+Website links:
 
 http://mpeg.chiariglione.org/
 http://www.mpeg.org/
