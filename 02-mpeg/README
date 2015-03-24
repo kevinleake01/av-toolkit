@@ -1,4 +1,8 @@
-There are 6 main video formats of MPEG:
+MPEG videos are one of the most popular video formats in
+the world. It is behind the VOB video format that is used
+in DVDs.
+
+There are 7 main video formats of MPEG:
 
 VCD-PAL: 352x288 @ 25 fps
 SVCD-PAL: 480x576 @ 25 fps
@@ -6,12 +10,14 @@ DVD-PAL: 720x576 @ 25 fps
 VCD-NTSC: 352x240 @ 29.97 fps
 SVCD-NTSC: 480x480 @ 29.97 fps
 DVD-NTSC: 720x480 @ 29.97 fps
+DVD-FILM: 720x480 @ 23.98 fps
 
 
 Website links:
 
 http://mpeg.chiariglione.org/
 http://www.mpeg.org/
+http://en.wikipedia.org/wiki/Moving_Picture_Experts_Group
+http://en.wikipedia.org/wiki/MPEG-1
 http://en.wikipedia.org/wiki/MPEG-2
-http://en.wikipedia.org/wiki/Category:ISO/IEC_13818
- 
+
