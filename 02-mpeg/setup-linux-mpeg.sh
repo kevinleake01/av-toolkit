@@ -212,6 +212,20 @@ ffmpeg -f lavfi -i testsrc=r=24000/1001 \
   fontsize=25: fontcolor=0xFFFFFF: text='': timecode='00\:00\:00\:00': r=24000/1001: box=1: boxcolor=0x000000@1" \
   -target film-dvd -frames:v 1000 06-smpte-0006.mpg
 
+mkvmerge -o 07-mkv-tsrc-0000.mkv = 03-testsrc-0000.mpg
+mkvmerge -o 07-mkv-tsrc-0001.mkv = 03-testsrc-0001.mpg
+mkvmerge -o 07-mkv-tsrc-0002.mkv = 03-testsrc-0002.mpg
+mkvmerge -o 07-mkv-tsrc-0003.mkv = 03-testsrc-0003.mpg
+mkvmerge -o 07-mkv-tsrc-0004.mkv = 03-testsrc-0004.mpg
+mkvmerge -o 07-mkv-tsrc-0005.mkv = 03-testsrc-0005.mpg
+mkvmerge -o 07-mkv-tsrc-0006.mkv = 03-testsrc-0006.mpg
 
+mkvmerge -o 08-mkv-smpte-0000.mkv = 06-smpte-0000.mpg
+mkvmerge -o 08-mkv-smpte-0001.mkv = 06-smpte-0001.mpg
+mkvmerge -o 08-mkv-smpte-0002.mkv = 06-smpte-0002.mpg
+mkvmerge -o 08-mkv-smpte-0003.mkv = 06-smpte-0003.mpg
+mkvmerge -o 08-mkv-smpte-0004.mkv = 06-smpte-0004.mpg
+mkvmerge -o 08-mkv-smpte-0005.mkv = 06-smpte-0005.mpg
+mkvmerge -o 08-mkv-smpte-0006.mkv = 06-smpte-0006.mpg
 
 
