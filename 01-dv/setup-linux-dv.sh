@@ -108,24 +108,3 @@ rm 07-fubk-0000-00.dv
 
 rm 07-fubk-0000-01.dv
 
-mkvmerge -o 08-mkv-dv-0000.mkv = 01-smptebars-0000.dv
-mkvmerge -o 08-mkv-dv-0001.mkv = 01-smptebars-0001.dv
-mkvmerge -o 08-mkv-dv-0002.mkv = 02-smptehdbars-0000.dv
-mkvmerge -o 08-mkv-dv-0003.mkv = 02-smptehdbars-0001.dv
-mkvmerge -o 08-mkv-dv-0004.mkv = 03-testsrc-0000.dv
-mkvmerge -o 08-mkv-dv-0005.mkv = 03-testsrc-0001.dv
-mkvmerge -o 08-mkv-dv-0006.mkv = 03-testsrc-0002.dv
-mkvmerge -o 08-mkv-dv-0007.mkv = 03-testsrc-0003.dv
-mkvmerge -o 08-mkv-dv-0008.mkv = 03-testsrc-0004.dv
-mkvmerge -o 08-mkv-dv-0009.mkv = 04-rgbtestsrc-0000.dv
-mkvmerge -o 08-mkv-dv-0010.mkv = 04-rgbtestsrc-0001.dv
-mkvmerge -o 08-mkv-dv-0011.mkv = 05-mandelbrot-0000.dv
-mkvmerge -o 08-mkv-dv-0012.mkv = 05-mandelbrot-0001.dv
-mkvmerge -o 08-mkv-dv-0013.mkv = 05-mandelbrot-0002.dv
-mkvmerge -o 08-mkv-dv-0014.mkv = 05-mandlebrot-0003.dv
-mkvmerge -o 08-mkv-dv-0015.mkv = 05-mandelbrot-0004.dv
-mkvmerge -o 08-mkv-dv-0016.mkv = 06-philips-pm5544-0000.dv
-mkvmerge -o 08-mkv-dv-0017.mkv = 06-philips-pm5544-0001.dv
-mkvmerge -o 08-mkv-dv-0018.mkv = 07-fubk-0000.dv
-mkvmerge -o 08-mkv-dv-0019.mkv = 07-fubk-0001.dv
-
