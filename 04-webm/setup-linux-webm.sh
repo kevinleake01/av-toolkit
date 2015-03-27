@@ -166,3 +166,23 @@ rm 07-fubk-0000-00.dv
 
 rm 07-fubk-0000-01.dv
 
+ffmpeg -f lavfi -i testsrc=r=25 \
+  -vf "drawtext=fontfile=$FONTFILE: \
+  fontsize=25: fontcolor=0xFFFFFF: text='': timecode='00\:00\:00\:00': r=25: box=1: boxcolor=0x000000@1" \
+  -acodec libvorbis -vcodec vp8 -s 720x576 -r 25 -frames:v 1000 08-smpte-0000.webm
+
+ffmpeg -f lavfi -i testsrc=r=30000/1001 \
+  -vf "drawtext=fontfile=$FONTFILE: \
+  fontsize=25: fontcolor=0xFFFFFF: text='': timecode='00\:00\:00\;00': r=30: box=1: boxcolor=0x000000@1" \
+  -acodec libvorbis -vcodec vp8 -s 720x480 -r 30000/1001 -frames:v 1000 08-smpte-0001.webm
+
+ffmpeg -f lavfi -i testsrc=r=25 \
+  -vf "drawtext=fontfile=$FONTFILE: \
+  fontsize=25: fontcolor=0xFFFFFF: text='': timecode='00\:00\:00\:00': r=25: box=1: boxcolor=0x000000@1" \
+  -acodec opus -vcodec vp9 -s 720x576 -r 25 -frames:v 1000 08-smpte-0002.webm
+
+ffmpeg -f lavfi -i testsrc=r=30000/1001 \
+  -vf "drawtext=fontfile=$FONTFILE: \
+  fontsize=25: fontcolor=0xFFFFFF: text='': timecode='00\:00\:00\;00': r=30: box=1: boxcolor=0x000000@1" \
+  -acodec opus -vcodec vp9 -s 720x480 -r 30000/1001 -frames:v 1000 08-smpte-0003.webm
+
