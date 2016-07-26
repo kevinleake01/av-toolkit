@@ -118,4 +118,10 @@ ffmpeg -f lavfi -i testsrc=r=30000/1001 \
   fontsize=25: fontcolor=0xFFFFFF: text='': timecode='00\:00\:00\;00': r=30: box=1: boxcolor=0x000000@1" \
   -target ntsc-dv -frames:v 1000 08-smpte-0001.dv
 
+ffmpeg -f lavfi -i testsrc2=r=25 \
+  -target pal-dv -frames:v 1000 09-testsrc2-0000.dv
+
+ffmpeg -f lavfi -i testsrc2=r=30000/1001 \
+  -target ntsc-dv -frames:v 1000 09-testsrc2-0001.dv
+
 
