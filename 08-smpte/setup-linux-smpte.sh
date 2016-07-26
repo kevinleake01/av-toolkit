@@ -210,3 +210,13 @@ melt -profile atsc_1080p_5994 -group in=0 out=1000 \
   count direction=up style=timecode sound=frame0 \
   -consumer avformat:09-atsc1080p-0003.mkv
 
+ffmpeg -f lavfi -i testsrc2=r=25 \
+  -vf "drawtext=fontfile=$FONTFILE: \
+  fontsize=25: fontcolor=0xFFFFFF: text='': timecode='00\:00\:00\:00': r=25: box=1: boxcolor=0x000000@1" \
+  -target pal-dv -frames:v 1000 10-testsrc2-0000.dv
+
+ffmpeg -f lavfi -i testsrc2=r=30000/1001 \
+  -vf "drawtext=fontfile=$FONTFILE: \
+  fontsize=25: fontcolor=0xFFFFFF: text='': timecode='00\:00\:00\;00': r=30: box=1: boxcolor=0x000000@1" \
+  -target ntsc-dv -frames:v 1000 10-testsrc2-0001.dv
+
