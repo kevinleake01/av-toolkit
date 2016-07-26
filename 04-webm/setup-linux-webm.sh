@@ -2,102 +2,102 @@
 
 FONTFILE=/usr/share/fonts/TTF/VeraMono.ttf
 
-ffmpeg -f lavfi -i smptebars=r=25 \
+ffmpeg -f lavfi -i smptebars=s=640x480:r=25 \
   -vf "drawtext=fontfile=$FONTFILE: \
   fontsize=25: fontcolor=0xFFFFFF: text='%{pts\:hms}-----%{n}': box=1: boxcolor=0x000000@1" \
   -acodec libvorbis -vcodec vp8 -s 720x576 -r 25 -frames:v 1000 01-smptebars-0000.webm
 
-ffmpeg -f lavfi -i smptebars=r=30000/1001 \
+ffmpeg -f lavfi -i smptebars=s=640x480:r=30000/1001 \
   -vf "drawtext=fontfile=$FONTFILE: \
   fontsize=25: fontcolor=0xFFFFFF: text='%{pts\:hms}-----%{n}': box=1: boxcolor=0x000000@1" \
   -acodec libvorbis -vcodec vp8 -s 720x480 -r 30000/1001 -frames:v 1000 01-smptebars-0001.webm
 
-ffmpeg -f lavfi -i smptebars=r=25 \
+ffmpeg -f lavfi -i smptebars=s=640x480:r=25 \
   -vf "drawtext=fontfile=$FONTFILE: \
   fontsize=25: fontcolor=0xFFFFFF: text='%{pts\:hms}-----%{n}': box=1: boxcolor=0x000000@1" \
   -acodec opus -vcodec vp9 -s 720x576 -r 25 -frames:v 1000 01-smptebars-0002.webm
 
-ffmpeg -f lavfi -i smptebars=r=30000/1001 \
+ffmpeg -f lavfi -i smptebars=s=640x480:r=30000/1001 \
   -vf "drawtext=fontfile=$FONTFILE: \
   fontsize=25: fontcolor=0xFFFFFF: text='%{pts\:hms}-----%{n}': box=1: boxcolor=0x000000@1" \
   -acodec opus -vcodec vp9 -s 720x480 -r 30000/1001 -frames:v 1000 01-smptebars-0003.webm
 
-ffmpeg -f lavfi -i smptehdbars=r=25 \
+ffmpeg -f lavfi -i smptehdbars=s=640x480:r=25 \
   -vf "drawtext=fontfile=$FONTFILE: \
   fontsize=25: fontcolor=0xFFFFFF: text='%{pts\:hms}-----%{n}': box=1: boxcolor=0x000000@1" \
   -acodec libvorbis -vcodec vp8 -s 720x576 -r 25 -frames:v 1000 02-smptehdbars-0000.webm
 
-ffmpeg -f lavfi -i smptehdbars=r=30000/1001 \
+ffmpeg -f lavfi -i smptehdbars=s=640x480:r=30000/1001 \
   -vf "drawtext=fontfile=$FONTFILE: \
   fontsize=25: fontcolor=0xFFFFFF: text='%{pts\:hms}-----%{n}': box=1: boxcolor=0x000000@1" \
   -acodec libvorbis -vcodec vp8 -s 720x480 -r 30000/1001 -frames:v 1000 02-smptehdbars-0001.webm
 
-ffmpeg -f lavfi -i smptehdbars=r=25 \
+ffmpeg -f lavfi -i smptehdbars=s=640x480:r=25 \
   -vf "drawtext=fontfile=$FONTFILE: \
   fontsize=25: fontcolor=0xFFFFFF: text='%{pts\:hms}-----%{n}': box=1: boxcolor=0x000000@1" \
   -acodec opus -vcodec vp9 -s 720x576 -r 25 -frames:v 1000 02-smptehdbars-0002.webm
 
-ffmpeg -f lavfi -i smptehdbars=r=30000/1001 \
+ffmpeg -f lavfi -i smptehdbars=s=640x480:r=30000/1001 \
   -vf "drawtext=fontfile=$FONTFILE: \
   fontsize=25: fontcolor=0xFFFFFF: text='%{pts\:hms}-----%{n}': box=1: boxcolor=0x000000@1" \
   -acodec opus -vcodec vp9 -s 720x480 -r 30000/1001 -frames:v 1000 02-smptehdbars-0003.webm
 
-ffmpeg -f lavfi -i testsrc=r=25 \
+ffmpeg -f lavfi -i testsrc=s=640x480:r=25 \
   -vf "drawtext=fontfile=$FONTFILE: \
   fontsize=25: fontcolor=0xFFFFFF: text='%{pts\:hms}-----%{n}': box=1: boxcolor=0x000000@1" \
   -acodec libvorbis -vcodec vp8 -s 720x576 -r 25 -frames:v 1000 03-testsrc-0000.webm
 
-ffmpeg -f lavfi -i testsrc=r=30000/1001 \
+ffmpeg -f lavfi -i testsrc=s=640x480:r=30000/1001 \
   -vf "drawtext=fontfile=$FONTFILE: \
   fontsize=25: fontcolor=0xFFFFFF: text='%{pts\:hms}-----%{n}': box=1: boxcolor=0x000000@1" \
   -acodec libvorbis -vcodec vp8 -s 720x480 -r 30000/1001 -frames:v 1000 03-testsrc-0001.webm
 
-ffmpeg -f lavfi -i testsrc=r=25 \
+ffmpeg -f lavfi -i testsrc=s=640x480:r=25 \
   -vf "drawtext=fontfile=$FONTFILE: \
   fontsize=25: fontcolor=0xFFFFFF: text='%{pts\:hms}-----%{n}': box=1: boxcolor=0x000000@1" \
   -acodec opus -vcodec vp9 -s 720x576 -r 25 -frames:v 1000 03-testsrc-0002.webm
 
-ffmpeg -f lavfi -i testsrc=r=30000/1001 \
+ffmpeg -f lavfi -i testsrc=s=640x480:r=30000/1001 \
   -vf "drawtext=fontfile=$FONTFILE: \
   fontsize=25: fontcolor=0xFFFFFF: text='%{pts\:hms}-----%{n}': box=1: boxcolor=0x000000@1" \
   -acodec opus -vcodec vp9 -s 720x480 -r 30000/1001 -frames:v 1000 03-testsrc-0003.webm
 
-ffmpeg -f lavfi -i rgbtestsrc=r=25 \
+ffmpeg -f lavfi -i rgbtestsrc=s=640x480:r=25 \
   -vf "drawtext=fontfile=$FONTFILE: \
   fontsize=25: fontcolor=0xFFFFFF: text='%{pts\:hms}-----%{n}': box=1: boxcolor=0x000000@1" \
   -acodec libvorbis -vcodec vp8 -s 720x576 -r 25 -frames:v 1000 04-rgbtestsrc-0000.webm
 
-ffmpeg -f lavfi -i rgbtestsrc=r=30000/1001 \
+ffmpeg -f lavfi -i rgbtestsrc=s=640x480:r=30000/1001 \
   -vf "drawtext=fontfile=$FONTFILE: \
   fontsize=25: fontcolor=0xFFFFFF: text='%{pts\:hms}-----%{n}': box=1: boxcolor=0x000000@1" \
   -acodec libvorbis -vcodec vp8 -s 720x480 -r 30000/1001 -frames:v 1000 04-rgbtestsrc-0001.webm
 
-ffmpeg -f lavfi -i rgbtestsrc=r=25 \
+ffmpeg -f lavfi -i rgbtestsrc=s=640x480:r=25 \
   -vf "drawtext=fontfile=$FONTFILE: \
   fontsize=25: fontcolor=0xFFFFFF: text='%{pts\:hms}-----%{n}': box=1: boxcolor=0x000000@1" \
   -acodec opus -vcodec vp9 -s 720x576 -r 25 -frames:v 1000 04-rgbtestsrc-0002.webm
 
-ffmpeg -f lavfi -i rgbtestsrc=r=30000/1001 \
+ffmpeg -f lavfi -i rgbtestsrc=s=640x480:r=30000/1001 \
   -vf "drawtext=fontfile=$FONTFILE: \
   fontsize=25: fontcolor=0xFFFFFF: text='%{pts\:hms}-----%{n}': box=1: boxcolor=0x000000@1" \
   -acodec libvorbis -vcodec vp8 -s 720x480 -r 30000/1001 -frames:v 1000 04-rgbtestsrc-0003.webm
 
-ffmpeg -f lavfi -i mandelbrot=r=25 \
+ffmpeg -f lavfi -i mandelbrot=s=640x480:r=25 \
   -vf "drawtext=fontfile=$FONTFILE: \
   fontsize=25: fontcolor=0xFFFFFF: text='%{pts\:hms}-----%{n}': box=1: boxcolor=0x000000@1" \
   -acodec libvorbis -vcodec vp8 -s 720x576 -r 25 -frames:v 1000 05-mandelbrot-0000.webm
 
-ffmpeg -f lavfi -i mandelbrot=r=30000/1001 \
+ffmpeg -f lavfi -i mandelbrot=s=640x480:r=30000/1001 \
   -vf "drawtext=fontfile=$FONTFILE: \
   fontsize=25: fontcolor=0xFFFFFF: text='%{pts\:hms}-----%{n}': box=1: boxcolor=0x000000@1" \
   -acodec libvorbis -vcodec vp8 -s 720x480 -r 30000/1001 -frames:v 1000 05-mandelbrot-0001.webm
 
-ffmpeg -f lavfi -i mandelbrot=r=25 \
+ffmpeg -f lavfi -i mandelbrot=s=640x480:r=25 \
   -vf "drawtext=fontfile=$FONTFILE: \
   fontsize=25: fontcolor=0xFFFFFF: text='%{pts\:hms}-----%{n}': box=1: boxcolor=0x000000@1" \
   -acodec opus -vcodec vp9 -s 720x576 -r 25 -frames:v 1000 05-mandelbrot-0002.webm
 
-ffmpeg -f lavfi -i mandelbrot=r=30000/1001 \
+ffmpeg -f lavfi -i mandelbrot=s=640x480:r=30000/1001 \
   -vf "drawtext=fontfile=$FONTFILE: \
   fontsize=25: fontcolor=0xFFFFFF: text='%{pts\:hms}-----%{n}': box=1: boxcolor=0x000000@1" \
   -acodec opus -vcodec vp9 -s 720x480 -r 30000/1001 -frames:v 1000 05-mandelbrot-0003.webm
@@ -166,22 +166,22 @@ rm 07-fubk-0000-00.dv
 
 rm 07-fubk-0000-01.dv
 
-ffmpeg -f lavfi -i testsrc=r=25 \
+ffmpeg -f lavfi -i testsrc=s=640x480:r=25 \
   -vf "drawtext=fontfile=$FONTFILE: \
   fontsize=25: fontcolor=0xFFFFFF: text='': timecode='00\:00\:00\:00': r=25: box=1: boxcolor=0x000000@1" \
   -acodec libvorbis -vcodec vp8 -s 720x576 -r 25 -frames:v 1000 08-smpte-0000.webm
 
-ffmpeg -f lavfi -i testsrc=r=30000/1001 \
+ffmpeg -f lavfi -i testsrc=s=640x480:r=30000/1001 \
   -vf "drawtext=fontfile=$FONTFILE: \
   fontsize=25: fontcolor=0xFFFFFF: text='': timecode='00\:00\:00\;00': r=30: box=1: boxcolor=0x000000@1" \
   -acodec libvorbis -vcodec vp8 -s 720x480 -r 30000/1001 -frames:v 1000 08-smpte-0001.webm
 
-ffmpeg -f lavfi -i testsrc=r=25 \
+ffmpeg -f lavfi -i testsrc=s=640x480:r=25 \
   -vf "drawtext=fontfile=$FONTFILE: \
   fontsize=25: fontcolor=0xFFFFFF: text='': timecode='00\:00\:00\:00': r=25: box=1: boxcolor=0x000000@1" \
   -acodec opus -vcodec vp9 -s 720x576 -r 25 -frames:v 1000 08-smpte-0002.webm
 
-ffmpeg -f lavfi -i testsrc=r=30000/1001 \
+ffmpeg -f lavfi -i testsrc=s=640x480:r=30000/1001 \
   -vf "drawtext=fontfile=$FONTFILE: \
   fontsize=25: fontcolor=0xFFFFFF: text='': timecode='00\:00\:00\;00': r=30: box=1: boxcolor=0x000000@1" \
   -acodec opus -vcodec vp9 -s 720x480 -r 30000/1001 -frames:v 1000 08-smpte-0003.webm
