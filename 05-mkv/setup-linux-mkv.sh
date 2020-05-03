@@ -513,12 +513,12 @@ ffmpeg -f lavfi -i testsrc=s=640x480:r=30000/1001 \
 ffmpeg -f lavfi -i rgbtestsrc=s=640x480:r=25 \
   -vf "drawtext=fontfile=$FONTFILE: \
   fontsize=25: fontcolor=0xFFFFFF: text='%{pts\:hms}-----%{n}': box=1: boxcolor=0x000000@1" \
-  -acodec libvorbis -vcodec vp8 -s 720x576 -r 25 -frames:v 1000 04-rgbtestsrc-0000.mkv
+  -acodec libvorbis -vcodec vp8 -s 720x576 -r 25 -frames:v 1000 -auto-alt-ref 0 04-rgbtestsrc-0000.mkv
 
 ffmpeg -f lavfi -i rgbtestsrc=s=640x480:r=30000/1001 \
   -vf "drawtext=fontfile=$FONTFILE: \
   fontsize=25: fontcolor=0xFFFFFF: text='%{pts\:hms}-----%{n}': box=1: boxcolor=0x000000@1" \
-  -acodec libvorbis -vcodec vp8 -s 720x480 -r 30000/1001 -frames:v 1000 04-rgbtestsrc-0001.mkv
+  -acodec libvorbis -vcodec vp8 -s 720x480 -r 30000/1001 -frames:v 1000 -auto-alt-ref 0 04-rgbtestsrc-0001.mkv
 
 ffmpeg -f lavfi -i rgbtestsrc=s=640x480:r=25 \
   -vf "drawtext=fontfile=$FONTFILE: \
@@ -528,7 +528,7 @@ ffmpeg -f lavfi -i rgbtestsrc=s=640x480:r=25 \
 ffmpeg -f lavfi -i rgbtestsrc=s=640x480:r=30000/1001 \
   -vf "drawtext=fontfile=$FONTFILE: \
   fontsize=25: fontcolor=0xFFFFFF: text='%{pts\:hms}-----%{n}': box=1: boxcolor=0x000000@1" \
-  -acodec libvorbis -vcodec vp8 -s 720x480 -r 30000/1001 -frames:v 1000 04-rgbtestsrc-0003.mkv
+  -acodec libvorbis -vcodec vp8 -s 720x480 -r 30000/1001 -frames:v 1000 -auto-alt-ref 0 04-rgbtestsrc-0003.mkv
 
 ffmpeg -f lavfi -i mandelbrot=s=640x480:r=25 \
   -vf "drawtext=fontfile=$FONTFILE: \
