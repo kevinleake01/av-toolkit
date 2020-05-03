@@ -37,9 +37,9 @@ ffmpeg -f lavfi -i testsrc=s=640x480:r=30000/1001 \
 
 ffmpeg -i 03-testsrc-0000.mkv -vf lutrgb=g=0:b=0 -target pal-dvd 03-testsrc-0002.mkv
 
-ffmpeg -i 03-testsrc-0000.mkv -vf lutrgb=s=640x480:r=0:b=0 -target pal-dvd 03-testsrc-0003.mkv
+ffmpeg -i 03-testsrc-0000.mkv -vf lutrgb=r=0:b=0 -target pal-dvd 03-testsrc-0003.mkv
 
-ffmpeg -i 03-testsrc-0000.mkv -vf lutrgb=s=640x480:r=0:g=0 -target pal-dvd 03-testsrc-0004.mkv
+ffmpeg -i 03-testsrc-0000.mkv -vf lutrgb=r=0:g=0 -target pal-dvd 03-testsrc-0004.mkv
 
 ffmpeg -f lavfi -i rgbtestsrc=s=640x480:r=25 \
   -vf "drawtext=fontfile=$FONTFILE: \
