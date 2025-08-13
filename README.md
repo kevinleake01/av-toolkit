@@ -5,15 +5,17 @@ The AV Toolkit is for users who want to practice their skills at audio and video
 -----------------
 Audio editing:
 
-AUDACITY: http://www.audacityteam.org/<br>
+AUDACITY: https://www.audacityteam.org/<br>
 LMMS: https://lmms.io/<br>
 
 -----------------
 Video Editing:
 
-KDENLIVE: http://kdenlive.org/<br>
-OPENSHOT: http://openshot.org/<br>
+KDENLIVE: https://kdenlive.org/<br>
+OPENSHOT: https://openshot.org/<br>
 FLOWBLADE: https://jliljebl.github.io/flowblade/<br>
-SHOTCUT: http://shotcut.org/<br>
-
+SHOTCUT: https://www.shotcut.org/<br>
+VIDCUTTER: https://github.com/ozmartian/vidcutter<br>
+NATRON: https://natrongithub.github.io/<br>
+CINELERRA GG INFINITY: https://cinelerra-gg.org/<br>
 

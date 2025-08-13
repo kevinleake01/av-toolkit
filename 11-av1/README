@@ -1,0 +1,35 @@
+---------------
+----- AV1 -----
+---------------
+
+AV1 is one of the latest open-source video codecs.
+
+FFmpeg comes with several encoders for AV1, named as libaom-av1, librav1e, libsvtav1, av1_nvenc,
+av1_qsv, av1_amf, and av1_vaapi. It should be noted that some encoders perform better than
+others. If you think one of the encoders is too slow or causing errors, try one of the others.
+
+To get the test AV1 videos, simply run one of the scripts listed here:
+
+setup-av1_amf-0001.sh
+setup-av1_amf-0002.sh
+setup-av1_nvenc-0001.sh
+setup-av1_nvenc-0002.sh
+setup-av1_qsv-0001.sh
+setup-av1_qsv-0002.sh
+setup-av1_vaapi-0001.sh
+setup-av1_vaapi-0002.sh
+setup-libaom_av1-0001.sh
+setup-libaom_av1-0002.sh
+setup-librav1e-0001.sh
+setup-librav1e-0002.sh
+setup-libsvtav1-0001.sh
+setup-libsvtav1-0002.sh
+
+-----------------------------------------------
+
+Website Links:
+
+https://aomedia.org/av1-features/
+https://aomediacodec.github.io/av1-spec/av1-spec.pdf
+https://en.wikipedia.org/wiki/AV1
+
