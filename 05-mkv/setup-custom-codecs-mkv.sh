@@ -374,8 +374,7 @@ ffmpeg -f lavfi -i haldclutsrc=8 \
 ffmpeg -f lavfi -i haldclutsrc=8 \
   -vf "drawtext=fontfile=$FONTFILE: \
   fontsize=25: fontcolor=0xFFFFFF: text='': timecode='00\:00\:00\;00': r=30: box=1: boxcolor=0x000000@1" \
-  -acodec $1 -vcodec $2 -b:v 1000k -s 720x480 -r 30000/1001 -frames:v $3 
-00_haldclutsrc_smpte_ntsc.mkv
+  -acodec $1 -vcodec $2 -b:v 1000k -s 720x480 -r 30000/1001 -frames:v $3 00_haldclutsrc_smpte_ntsc.mkv
 
 cd ../
 
