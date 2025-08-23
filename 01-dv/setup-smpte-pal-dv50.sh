@@ -26,22 +26,22 @@ ffmpeg -f lavfi -i testsrc=s=640x480:r=25 \
   fontsize=25: fontcolor=0xFFFFFF: text='': timecode='00\:00\:00\:00': r=25: box=1: boxcolor=0x000000@1" \
   -target pal-dv50 -frames:v $1 00_testsrc_smpte_pal.dv
 
-ffmpeg -i 00_testsrc_tcode_pal.dv -vf lutrgb=g=0:b=0 -target pal-dv50 00_testsrc_tcode_red_pal.dv
+ffmpeg -i 00_testsrc_smpte_pal.dv -vf lutrgb=g=0:b=0 -target pal-dv50 00_testsrc_smpte_red_pal.dv
 
-ffmpeg -i 00_testsrc_tcode_pal.dv -vf lutrgb=r=0:b=0 -target pal-dv50 00_testsrc_tcode_green_pal.dv
+ffmpeg -i 00_testsrc_smpte_pal.dv -vf lutrgb=r=0:b=0 -target pal-dv50 00_testsrc_smpte_green_pal.dv
 
-ffmpeg -i 00_testsrc_tcode_pal.dv -vf lutrgb=r=0:g=0 -target pal-dv50 00_testsrc_tcode_blue_pal.dv
+ffmpeg -i 00_testsrc_smpte_pal.dv -vf lutrgb=r=0:g=0 -target pal-dv50 00_testsrc_smpte_blue_pal.dv
 
 ffmpeg -f lavfi -i mandelbrot=s=640x480:r=25 \
   -vf "drawtext=fontfile=$FONTFILE: \
   fontsize=25: fontcolor=0xFFFFFF: text='': timecode='00\:00\:00\:00': r=25: box=1: boxcolor=0x000000@1" \
   -target pal-dv50 -frames:v $1 00_mandelbrot_smpte_pal.dv
 
-ffmpeg -i 00_mandelbrot_tcode_pal.dv -vf lutrgb=g=0:b=0 -target pal-dv50 00_mandelbrot_tcode_red_pal.dv
+ffmpeg -i 00_mandelbrot_smpte_pal.dv -vf lutrgb=g=0:b=0 -target pal-dv50 00_mandelbrot_smpte_red_pal.dv
 
-ffmpeg -i 00_mandelbrot_tcode_pal.dv -vf lutrgb=r=0:b=0 -target pal-dv50 00_mandelbrot_tcode_green_pal.dv
+ffmpeg -i 00_mandelbrot_smpte_pal.dv -vf lutrgb=r=0:b=0 -target pal-dv50 00_mandelbrot_smpte_green_pal.dv
 
-ffmpeg -i 00_mandelbrot_tcode_pal.dv -vf lutrgb=r=0:g=0 -target pal-dv50 00_mandelbrot_tcode_blue_pal.dv
+ffmpeg -i 00_mandelbrot_smpte_pal.dv -vf lutrgb=r=0:g=0 -target pal-dv50 00_mandelbrot_smpte_blue_pal.dv
 
 ffmpeg -f lavfi -i rgbtestsrc=s=640x480:r=25 \
   -vf "drawtext=fontfile=$FONTFILE: \
