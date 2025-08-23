@@ -60,12 +60,17 @@ ffmpeg -f lavfi -i testsrc2=s=640x480:r=24000/1001 \
   fontsize=25: fontcolor=0xFFFFFF: text='': timecode='00\:00\:00\;00': r=24: box=1: boxcolor=0x000000@1" \
   -target film-$1 -frames:v $2 00_testsrc2_smpte_film.mpg
 
-ffmpeg -f lavfi -i colorchart \
+ffmpeg -f lavfi -i colorchart=patch_size=128x128:preset=reference \
   -vf "drawtext=fontfile=$FONTFILE: \
   fontsize=25: fontcolor=0xFFFFFF: text='': timecode='00\:00\:00\;00': r=24: box=1: boxcolor=0x000000@1" \
-  -target film-$1 -frames:v $2 00_colorchart_smpte_film.mpg
+  -target film-$1 -frames:v $2 00_colorchart_ref_smpte_film.mpg
 
-ffmpeg -f lavfi -i colorspectrum=s=640x480:r=24000/1001 \
+ffmpeg -f lavfi -i colorchart=patch_size=128x128:preset=skintones \
+  -vf "drawtext=fontfile=$FONTFILE: \
+  fontsize=25: fontcolor=0xFFFFFF: text='': timecode='00\:00\:00\;00': r=24: box=1: boxcolor=0x000000@1" \
+  -target film-$1 -frames:v $2 00_colorchart_skin_smpte_film.mpg
+
+ffmpeg -f lavfi -i colorspectrum=s=640x480:type=all:r=24000/1001 \
   -vf "drawtext=fontfile=$FONTFILE: \
   fontsize=25: fontcolor=0xFFFFFF: text='': timecode='00\:00\:00\;00': r=24: box=1: boxcolor=0x000000@1" \
   -target film-$1 -frames:v $2 00_colorspectrum_smpte_film.mpg

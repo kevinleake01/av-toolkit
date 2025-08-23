@@ -93,6 +93,11 @@ ffmpeg -f lavfi -i yuvtestsrc=s=640x480:r=30000/1001 \
   fontsize=25: fontcolor=0xFFFFFF: text='%{pts\:hms}-----%{n}': box=1: boxcolor=0x000000@1" \
   -target ntsc-dvd -frames:v $1 00_yuvtestsrc_tcode_ntsc.mpg
 
+ffmpeg -f lavfi -i testsrc2=s=640x480:r=25 \
+  -vf "drawtext=fontfile=$FONTFILE: \
+  fontsize=25: fontcolor=0xFFFFFF: text='%{pts\:hms}-----%{n}': box=1: boxcolor=0x000000@1" \
+  -target pal-dvd -frames:v $1 00_testsrc2_tcode_pal.mpg
+
 ffmpeg -f lavfi -i testsrc2=s=640x480:r=30000/1001 \
   -vf "drawtext=fontfile=$FONTFILE: \
   fontsize=25: fontcolor=0xFFFFFF: text='%{pts\:hms}-----%{n}': box=1: boxcolor=0x000000@1" \

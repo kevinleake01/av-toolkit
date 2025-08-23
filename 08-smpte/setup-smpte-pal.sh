@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# This script creates MPEG video files with a SMPTE timecode.
+# This script creates PAL MPEG video files with a SMPTE timecode.
 #
 # Example usage:
 #
@@ -28,22 +28,22 @@ ffmpeg -f lavfi -i testsrc=s=640x480:r=25 \
   fontsize=25: fontcolor=0xFFFFFF: text='': timecode='00\:00\:00\:00': r=25: box=1: boxcolor=0x000000@1" \
   -target pal-$1 -frames:v $2 00_testsrc_smpte_pal.mpg
 
-ffmpeg -i 00_testsrc_tcode_pal.mpg -vf lutrgb=g=0:b=0 -target pal-$1 00_testsrc_tcode_red_pal.mpg
+ffmpeg -i 00_testsrc_smpte_pal.mpg -vf lutrgb=g=0:b=0 -target pal-$1 00_testsrc_smpte_red_pal.mpg
 
-ffmpeg -i 00_testsrc_tcode_pal.mpg -vf lutrgb=r=0:b=0 -target pal-$1 00_testsrc_tcode_green_pal.mpg
+ffmpeg -i 00_testsrc_smpte_pal.mpg -vf lutrgb=r=0:b=0 -target pal-$1 00_testsrc_smpte_green_pal.mpg
 
-ffmpeg -i 00_testsrc_tcode_pal.mpg -vf lutrgb=r=0:g=0 -target pal-$1 00_testsrc_tcode_blue_pal.mpg
+ffmpeg -i 00_testsrc_smpte_pal.mpg -vf lutrgb=r=0:g=0 -target pal-$1 00_testsrc_smpte_blue_pal.mpg
 
 ffmpeg -f lavfi -i mandelbrot=s=640x480:r=25 \
   -vf "drawtext=fontfile=$FONTFILE: \
   fontsize=25: fontcolor=0xFFFFFF: text='': timecode='00\:00\:00\:00': r=25: box=1: boxcolor=0x000000@1" \
   -target pal-$1 -frames:v $2 00_mandelbrot_smpte_pal.mpg
 
-ffmpeg -i 00_mandelbrot_tcode_pal.mpg -vf lutrgb=g=0:b=0 -target pal-$1 00_mandelbrot_tcode_red_pal.mpg
+ffmpeg -i 00_mandelbrot_smpte_pal.mpg -vf lutrgb=g=0:b=0 -target pal-$1 00_mandelbrot_smpte_red_pal.mpg
 
-ffmpeg -i 00_mandelbrot_tcode_pal.mpg -vf lutrgb=r=0:b=0 -target pal-$1 00_mandelbrot_tcode_green_pal.mpg
+ffmpeg -i 00_mandelbrot_smpte_pal.mpg -vf lutrgb=r=0:b=0 -target pal-$1 00_mandelbrot_smpte_green_pal.mpg
 
-ffmpeg -i 00_mandelbrot_tcode_pal.mpg -vf lutrgb=r=0:g=0 -target pal-$1 00_mandelbrot_tcode_blue_pal.mpg
+ffmpeg -i 00_mandelbrot_smpte_pal.mpg -vf lutrgb=r=0:g=0 -target pal-$1 00_mandelbrot_smpte_blue_pal.mpg
 
 ffmpeg -f lavfi -i rgbtestsrc=s=640x480:r=25 \
   -vf "drawtext=fontfile=$FONTFILE: \
@@ -104,12 +104,17 @@ ffmpeg -i 00_temp_pal.dv \
 
 rm 00_temp_pal.dv
 
-ffmpeg -f lavfi -i colorchart \
+ffmpeg -f lavfi -i colorchart=patch_size=128x128:preset=reference \
   -vf "drawtext=fontfile=$FONTFILE: \
   fontsize=25: fontcolor=0xFFFFFF: text='': timecode='00\:00\:00\:00': r=25: box=1: boxcolor=0x000000@1" \
-  -target pal-$1 -frames:v $2 00_colorchart_smpte_pal.mpg
+  -target pal-$1 -frames:v $2 00_colorchart_ref_smpte_pal.mpg
 
-ffmpeg -f lavfi -i colorspectrum=s=640x480:r=25 \
+ffmpeg -f lavfi -i colorchart=patch_size=128x128:preset=skintones \
+  -vf "drawtext=fontfile=$FONTFILE: \
+  fontsize=25: fontcolor=0xFFFFFF: text='': timecode='00\:00\:00\:00': r=25: box=1: boxcolor=0x000000@1" \
+  -target pal-$1 -frames:v $2 00_colorchart_skin_smpte_pal.mpg
+
+ffmpeg -f lavfi -i colorspectrum=s=640x480:type=all:r=25 \
   -vf "drawtext=fontfile=$FONTFILE: \
   fontsize=25: fontcolor=0xFFFFFF: text='': timecode='00\:00\:00\:00': r=25: box=1: boxcolor=0x000000@1" \
   -target pal-$1 -frames:v $2 00_colorspectrum_smpte_pal.mpg

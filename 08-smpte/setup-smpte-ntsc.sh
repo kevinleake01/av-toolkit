@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# This script creates MPEG video files with a SMPTE timecode.
+# This script creates NTSC MPEG video files with a SMPTE timecode.
 #
 # Example usage:
 #
@@ -104,12 +104,17 @@ ffmpeg -i 00_temp_ntsc.dv \
 
 rm 00_temp_ntsc.dv
 
-ffmpeg -f lavfi -i colorchart \
+ffmpeg -f lavfi -i colorchart=patch_size=128x128:preset=reference \
   -vf "drawtext=fontfile=$FONTFILE: \
   fontsize=25: fontcolor=0xFFFFFF: text='': timecode='00\:00\:00\;00': r=30: box=1: boxcolor=0x000000@1" \
-  -target ntsc-$1 -frames:v $2 00_colorchart_smpte_ntsc.mpg
+  -target ntsc-$1 -frames:v $2 00_colorchart_ref_smpte_ntsc.mpg
 
-ffmpeg -f lavfi -i colorspectrum=s=640x480:r=30000/1001 \
+ffmpeg -f lavfi -i colorchart=patch_size=128x128:preset=skintones \
+  -vf "drawtext=fontfile=$FONTFILE: \
+  fontsize=25: fontcolor=0xFFFFFF: text='': timecode='00\:00\:00\;00': r=30: box=1: boxcolor=0x000000@1" \
+  -target ntsc-$1 -frames:v $2 00_colorchart_skin_smpte_ntsc.mpg
+
+ffmpeg -f lavfi -i colorspectrum=s=640x480:type=all:r=30000/1001 \
   -vf "drawtext=fontfile=$FONTFILE: \
   fontsize=25: fontcolor=0xFFFFFF: text='': timecode='00\:00\:00\;00': r=30: box=1: boxcolor=0x000000@1" \
   -target ntsc-$1 -frames:v $2 00_colorspectrum_smpte_ntsc.mpg
