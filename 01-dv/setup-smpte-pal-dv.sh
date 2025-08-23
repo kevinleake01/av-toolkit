@@ -58,7 +58,7 @@ ffmpeg -f lavfi -i testsrc2=s=640x480:r=25 \
   fontsize=25: fontcolor=0xFFFFFF: text='': timecode='00\:00\:00\:00': r=25: box=1: boxcolor=0x000000@1" \
   -target pal-dv -frames:v $1 00_testsrc2_smpte_pal.dv
 
-melt -profile dv_pal -group in=0 out=$3 \
+melt -profile dv_pal -group in=0 out=$1 \
   frei0r.test_pat_B 0=5 1=0 \
   -consumer avformat:00_temp_pal.dv
 
@@ -69,7 +69,7 @@ ffmpeg -i 00_temp_pal.dv \
 
 rm 00_temp_pal.dv
 
-melt -profile dv_pal -group in=0 out=$3 \
+melt -profile dv_pal -group in=0 out=$1 \
   frei0r.test_pat_B 0=6 1=0 \
   -consumer avformat:00_temp_pal.dv
 
@@ -80,7 +80,7 @@ ffmpeg -i 00_temp_pal.dv \
 
 rm 00_temp_pal.dv
 
-melt -profile dv_pal -group in=0 out=$3 \
+melt -profile dv_pal -group in=0 out=$1 \
   frei0r.test_pat_B 0=7 1=0 \
   -consumer avformat:00_temp_pal.dv
 
@@ -91,7 +91,7 @@ ffmpeg -i 00_temp_pal.dv \
 
 rm 00_temp_pal.dv
 
-melt -profile dv_pal -group in=0 out=$3 \
+melt -profile dv_pal -group in=0 out=$1 \
   count direction=up style=timecode sound=frame0 \
   -consumer avformat:00_temp_pal.dv
 
