@@ -20,3 +20,12 @@ NATRON: https://natrongithub.github.io/<br>
 CINELERRA GG INFINITY: https://cinelerra-gg.org/<br>
 CINELERRA-HV: http://heroinewarrior.com/<br>
 
+----------------
+Makers and Generators:
+
+TESTCARDGEN: https://github.com/mayafeur/testcardgen<br>
+GITHUB AI VIDEO GENERATORS: https://github.com/topics/ai-video-generator<br>
+QWEN: https://chat.qwen.ai/?inputFeature=t2v<br>
+VHEER: https://www.vheer.com/<br>
+VEO 2: https://veo2.pro/en<br>
+
