@@ -60,11 +60,11 @@ ffmpeg -f lavfi -i testsrc2=s=640x480:r=30000/1001 \
   fontsize=25: fontcolor=0xFFFFFF: text='': timecode='00\:00\:00\;00': r=30: box=1: boxcolor=0x000000@1" \
   -target ntsc-$1 -frames:v $2 00_testsrc2_smpte_ntsc.mpg
 
-ffmpeg -i 00_testsrc_smpte_ntsc.mpg -vf lutrgb=g=0:b=0 -target ntsc-$1 00_testsrc_smpte_red_ntsc.mpg
+ffmpeg -i 00_testsrc2_smpte_ntsc.mpg -vf lutrgb=g=0:b=0 -target ntsc-$1 00_testsrc2_smpte_red_ntsc.mpg
 
-ffmpeg -i 00_testsrc_smpte_ntsc.mpg -vf lutrgb=r=0:b=0 -target ntsc-$1 00_testsrc_smpte_green_ntsc.mpg
+ffmpeg -i 00_testsrc2_smpte_ntsc.mpg -vf lutrgb=r=0:b=0 -target ntsc-$1 00_testsrc2_smpte_green_ntsc.mpg
 
-ffmpeg -i 00_testsrc_smpte_ntsc.mpg -vf lutrgb=r=0:g=0 -target ntsc-$1 00_testsrc_smpte_blue_ntsc.mpg
+ffmpeg -i 00_testsrc2_smpte_ntsc.mpg -vf lutrgb=r=0:g=0 -target ntsc-$1 00_testsrc2_smpte_blue_ntsc.mpg
 
 melt -profile dv_ntsc -group in=0 out=$2 \
   frei0r.test_pat_B 0=5 1=0 \

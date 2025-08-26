@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# This script creates Ogg Theora video files with SMPTE Timecodes. Example usage:
+# This script creates Ogg Theora video files with SMPTE timecodes. Example usage:
 #
 # ./setup-ogg.sh 1000
 

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# This script creates Matroska video files with SMPTE Timecodes using customized audio
+# This script creates Matroska video files with SMPTE timecodes using customized audio
 # and video codecs. Example usage:
 #
 # ./setup-mkv-custom-codecs.sh libvorbis libtheora 1000

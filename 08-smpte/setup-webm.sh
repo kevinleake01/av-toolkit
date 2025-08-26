@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# This script creates Webm video files with SMPTE Timecodes. Example usage:
+# This script creates Webm video files with SMPTE timecodes. Example usage:
 #
 # ./setup-webm.sh 1000
 

@@ -102,6 +102,12 @@ ffmpeg -f lavfi -i testsrc2=s=640x480:r=24000/1001 \
   fontsize=25: fontcolor=0xFFFFFF: text='': timecode='00\:00\:00\:00': r=24000/1001: box=1: boxcolor=0x000000@1" \
   -target film-dv50 -frames:v $1 00_testsrc2_smpte_film.dv
 
+ffmpeg -i 00_testsrc2_smpte_film.dv -vf lutrgb=g=0:b=0 -target film-dv50 00_testsrc2_smpte_red_film.dv
+
+ffmpeg -i 00_testsrc2_smpte_film.dv -vf lutrgb=r=0:b=0 -target film-dv50 00_testsrc2_smpte_green_film.dv
+
+ffmpeg -i 00_testsrc2_smpte_film.dv -vf lutrgb=r=0:g=0 -target film-dv50 00_testsrc2_smpte_blue_film.dv
+
 ffmpeg -f lavfi -i colorchart=patch_size=128x128:preset=reference \
   -vf "drawtext=fontfile=$FONTFILE: \
   fontsize=25: fontcolor=0xFFFFFF: text='': timecode='00\:00\:00\:00': r=24000/1001: box=1: boxcolor=0x000000@1" \

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# This script creates NTSC DV video files with SMPTE timecode.
+# This script creates NTSC DV video files with SMPTE timecodes.
 #
 # Example usage:
 #
@@ -57,6 +57,12 @@ ffmpeg -f lavfi -i testsrc2=s=640x480:r=30000/1001 \
   -vf "drawtext=fontfile=$FONTFILE: \
   fontsize=25: fontcolor=0xFFFFFF: text='': timecode='00\:00\:00\;00': r=30: box=1: boxcolor=0x000000@1" \
   -target ntsc-dv -frames:v $1 00_testsrc2_smpte_ntsc.dv
+
+ffmpeg -i 00_testsrc2_smpte_ntsc.dv -vf lutrgb=g=0:b=0 -target ntsc-dv 00_testsrc2_smpte_red_ntsc.dv
+
+ffmpeg -i 00_testsrc2_smpte_ntsc.dv -vf lutrgb=r=0:b=0 -target ntsc-dv 00_testsrc2_smpte_green_ntsc.dv
+
+ffmpeg -i 00_testsrc2_smpte_ntsc.dv -vf lutrgb=r=0:g=0 -target ntsc-dv 00_testsrc2_smpte_blue_ntsc.dv
 
 melt -profile dv_ntsc -group in=0 out=$1 \
   frei0r.test_pat_B 0=5 1=0 \
