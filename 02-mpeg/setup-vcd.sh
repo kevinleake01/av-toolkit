@@ -93,10 +93,23 @@ ffmpeg -f lavfi -i yuvtestsrc=s=640x480:r=30000/1001 \
   fontsize=25: fontcolor=0xFFFFFF: text='%{pts\:hms}-----%{n}': box=1: boxcolor=0x000000@1" \
   -target ntsc-vcd -frames:v $1 00_yuvtestsrc_tcode_ntsc.mpg
 
+ffmpeg -f lavfi -i testsrc2=s=640x480:r=25 \
+  -target pal-vcd -frames:v $1 00_testsrc2_tcode_pal.mpg
+
 ffmpeg -f lavfi -i testsrc2=s=640x480:r=30000/1001 \
-  -vf "drawtext=fontfile=$FONTFILE: \
-  fontsize=25: fontcolor=0xFFFFFF: text='%{pts\:hms}-----%{n}': box=1: boxcolor=0x000000@1" \
   -target ntsc-vcd -frames:v $1 00_testsrc2_tcode_ntsc.mpg
+
+ffmpeg -i 00_testsrc2_tcode_pal.mpg -vf lutrgb=g=0:b=0 -target pal-vcd 00_testsrc2_tcode_red_pal.mpg
+
+ffmpeg -i 00_testsrc2_tcode_pal.mpg -vf lutrgb=r=0:b=0 -target pal-vcd 00_testsrc2_tcode_green_pal.mpg
+
+ffmpeg -i 00_testsrc2_tcode_pal.mpg -vf lutrgb=r=0:g=0 -target pal-vcd 00_testsrc2_tcode_blue_pal.mpg
+
+ffmpeg -i 00_testsrc2_tcode_ntsc.mpg -vf lutrgb=g=0:b=0 -target ntsc-vcd 00_testsrc2_tcode_red_ntsc.mpg
+
+ffmpeg -i 00_testsrc2_tcode_ntsc.mpg -vf lutrgb=r=0:b=0 -target ntsc-vcd 00_testsrc2_tcode_green_ntsc.mpg
+
+ffmpeg -i 00_testsrc2_tcode_ntsc.mpg -vf lutrgb=r=0:g=0 -target ntsc-vcd 00_testsrc2_tcode_blue_ntsc.mpg
 
 melt -profile dv_pal -group in=0 out=$1 \
   frei0r.test_pat_B 0=5 1=0 \

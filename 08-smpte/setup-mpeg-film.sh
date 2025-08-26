@@ -1,12 +1,12 @@
 #!/bin/sh
 
-# This script creates MPEG video files with a SMPTE timecode.
+# This script creates MPEG video files with SMPTE timecodes.
 #
 # Example usage:
 #
-# ./setup-smpte-film vcd 1000
-# ./setup-smpte-film svcd 1000
-# ./setup-smpte-film dvd 1000
+# ./setup-mpeg-film.sh vcd 1000
+# ./setup-mpeg-film.sh svcd 1000
+# ./setup-mpeg-film.sh dvd 1000
 
 FONTFILE=/usr/share/fonts/TTF/VeraMono.ttf
 
@@ -45,6 +45,50 @@ ffmpeg -i 00_mandelbrot_smpte_film.mpg -vf lutrgb=r=0:b=0 -target film-$1 00_man
 
 ffmpeg -i 00_mandelbrot_smpte_film.mpg -vf lutrgb=r=0:g=0 -target film-$1 00_mandelbrot_smpte_blue_film.mpg
 
+melt -profile dv_ntsc -group in=0 out=$2 \
+  frei0r.test_pat_B 0=5 1=0 \
+  -consumer avformat:00_temp_ntsc.dv
+
+ffmpeg -i 00_temp_ntsc.dv \
+  -vf "drawtext=fontfile=$FONTFILE: \
+  fontsize=25: fontcolor=0xFFFFFF: text='': timecode='00\:00\:00\:00': r=24000/1001: box=1: boxcolor=0x000000@1" \
+  -target film-$1 -frames:v $2 00_pm5544_smpte_film.mpg
+
+rm 00_temp_ntsc.dv
+
+melt -profile dv_ntsc -group in=0 out=$2 \
+  frei0r.test_pat_B 0=6 1=0 \
+  -consumer avformat:00_temp_ntsc.dv
+
+ffmpeg -i 00_temp_ntsc.dv \
+  -vf "drawtext=fontfile=$FONTFILE: \
+  fontsize=25: fontcolor=0xFFFFFF: text='': timecode='00\:00\:00\:00': r=24000/1001: box=1: boxcolor=0x000000@1" \
+  -target film-$1 -frames:v $2 00_fubk_smpte_film.mpg
+
+rm 00_temp_ntsc.dv
+
+melt -profile dv_ntsc -group in=0 out=$2 \
+  frei0r.test_pat_B 0=7 1=0 \
+  -consumer avformat:00_temp_ntsc.dv
+
+ffmpeg -i 00_temp_ntsc.dv \
+  -vf "drawtext=fontfile=$FONTFILE: \
+  fontsize=25: fontcolor=0xFFFFFF: text='': timecode='00\:00\:00\:00': r=24000/1001: box=1: boxcolor=0x000000@1" \
+  -target film-$1 -frames:v $2 00_simple_fubk_smpte_film.mpg
+
+rm 00_temp_ntsc.dv
+
+melt -profile dv_ntsc -group in=0 out=$2 \
+  count direction=up style=timecode sound=frame0 \
+  -consumer avformat:00_temp_ntsc.dv
+
+ffmpeg -i 00_temp_ntsc.dv \
+  -vf "drawtext=fontfile=$FONTFILE: \
+  fontsize=25: fontcolor=0xFFFFFF: text='': timecode='00\:00\:00\:00': r=24000/1001: box=1: boxcolor=0x000000@1" \
+  -target film-$1 -frames:v $2 00_mlt_timecode_smpte_film.mpg
+
+rm 00_temp_ntsc.dv
+
 ffmpeg -f lavfi -i rgbtestsrc=s=640x480:r=24000/1001 \
   -vf "drawtext=fontfile=$FONTFILE: \
   fontsize=25: fontcolor=0xFFFFFF: text='': timecode='00\:00\:00\:00': r=24000/1001: box=1: boxcolor=0x000000@1" \
@@ -59,6 +103,12 @@ ffmpeg -f lavfi -i testsrc2=s=640x480:r=24000/1001 \
   -vf "drawtext=fontfile=$FONTFILE: \
   fontsize=25: fontcolor=0xFFFFFF: text='': timecode='00\:00\:00\:00': r=24000/1001: box=1: boxcolor=0x000000@1" \
   -target film-$1 -frames:v $2 00_testsrc2_smpte_film.mpg
+
+ffmpeg -i 00_testsrc2_smpte_film.mpg -vf lutrgb=g=0:b=0 -target film-$1 00_testsrc2_smpte_red_film.mpg
+
+ffmpeg -i 00_testsrc2_smpte_film.mpg -vf lutrgb=r=0:b=0 -target film-$1 00_testsrc2_smpte_green_film.mpg
+
+ffmpeg -i 00_testsrc2_smpte_film.mpg -vf lutrgb=r=0:g=0 -target film-$1 00_testsrc2_smpte_blue_film.mpg
 
 ffmpeg -f lavfi -i colorchart=patch_size=128x128:preset=reference \
   -vf "drawtext=fontfile=$FONTFILE: \

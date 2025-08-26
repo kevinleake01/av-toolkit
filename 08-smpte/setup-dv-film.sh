@@ -43,6 +43,50 @@ ffmpeg -i 00_mandelbrot_smpte_film.dv -vf lutrgb=r=0:b=0 -target film-dv 00_mand
 
 ffmpeg -i 00_mandelbrot_smpte_film.dv -vf lutrgb=r=0:g=0 -target film-dv 00_mandelbrot_smpte_blue_film.dv
 
+melt -profile dv_ntsc -group in=0 out=$1 \
+  frei0r.test_pat_B 0=5 1=0 \
+  -consumer avformat:00_temp_ntsc.dv
+
+ffmpeg -i 00_temp_ntsc.dv \
+  -vf "drawtext=fontfile=$FONTFILE: \
+  fontsize=25: fontcolor=0xFFFFFF: text='': timecode='00\:00\:00\:00': r=24000/1001: box=1: boxcolor=0x000000@1" \
+  -target film-dv -frames:v $2 00_pm5544_smpte_film.dv
+
+rm 00_temp_ntsc.dv
+
+melt -profile dv_ntsc -group in=0 out=$1 \
+  frei0r.test_pat_B 0=6 1=0 \
+  -consumer avformat:00_temp_ntsc.dv
+
+ffmpeg -i 00_temp_ntsc.dv \
+  -vf "drawtext=fontfile=$FONTFILE: \
+  fontsize=25: fontcolor=0xFFFFFF: text='': timecode='00\:00\:00\:00': r=24000/1001: box=1: boxcolor=0x000000@1" \
+  -target film-dv -frames:v $2 00_fubk_smpte_film.dv
+
+rm 00_temp_ntsc.dv
+
+melt -profile dv_ntsc -group in=0 out=$1 \
+  frei0r.test_pat_B 0=7 1=0 \
+  -consumer avformat:00_temp_ntsc.dv
+
+ffmpeg -i 00_temp_ntsc.dv \
+  -vf "drawtext=fontfile=$FONTFILE: \
+  fontsize=25: fontcolor=0xFFFFFF: text='': timecode='00\:00\:00\:00': r=24000/1001: box=1: boxcolor=0x000000@1" \
+  -target film-dv -frames:v $2 00_simple_fubk_smpte_film.dv
+
+rm 00_temp_ntsc.dv
+
+melt -profile dv_ntsc -group in=0 out=$1 \
+  count direction=up style=timecode sound=frame0 \
+  -consumer avformat:00_temp_ntsc.dv
+
+ffmpeg -i 00_temp_ntsc.dv \
+  -vf "drawtext=fontfile=$FONTFILE: \
+  fontsize=25: fontcolor=0xFFFFFF: text='': timecode='00\:00\:00\:00': r=24000/1001: box=1: boxcolor=0x000000@1" \
+  -target film-dv -frames:v $2 00_mlt_timecode_smpte_film.dv
+
+rm 00_temp_ntsc.dv
+
 ffmpeg -f lavfi -i rgbtestsrc=s=640x480:r=24000/1001 \
   -vf "drawtext=fontfile=$FONTFILE: \
   fontsize=25: fontcolor=0xFFFFFF: text='': timecode='00\:00\:00\:00': r=24000/1001: box=1: boxcolor=0x000000@1" \

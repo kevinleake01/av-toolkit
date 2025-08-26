@@ -15,7 +15,9 @@ KDENLIVE: https://kdenlive.org/<br>
 OPENSHOT: https://openshot.org/<br>
 SHOTCUT: https://www.shotcut.org/<br>
 FLOWBLADE: https://jliljebl.github.io/flowblade/<br>
+AVIDEMUX: https://avidemux.sourceforge.net/<br>
 VIDCUTTER: https://github.com/ozmartian/vidcutter<br>
+LOSSLESS CUT: https://www.mifi.no/losslesscut/<br>
 NATRON: https://natrongithub.github.io/<br>
 CINELERRA GG INFINITY: https://cinelerra-gg.org/<br>
 CINELERRA-HV: http://heroinewarrior.com/<br>
