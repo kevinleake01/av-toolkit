@@ -4,7 +4,7 @@
 #
 # Example usage:
 #
-# ./setup-smpte-pal-dv50 1000
+# ./setup-dv50-pal.sh 1000
 
 FONTFILE=/usr/share/fonts/TTF/VeraMono.ttf
 

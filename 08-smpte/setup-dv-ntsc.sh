@@ -4,7 +4,7 @@
 #
 # Example usage:
 #
-# ./setup-smpte-ntsc-dv 1000
+# ./setup-dv-ntsc.sh 1000
 
 FONTFILE=/usr/share/fonts/TTF/VeraMono.ttf
 
