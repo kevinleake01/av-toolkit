@@ -10,20 +10,24 @@ others. If you think one of the encoders is too slow or causing errors, try one 
 
 To get the test AV1 videos, simply run one of the scripts listed here:
 
-setup-av1_amf-0001.sh
-setup-av1_amf-0002.sh
-setup-av1_nvenc-0001.sh
-setup-av1_nvenc-0002.sh
-setup-av1_qsv-0001.sh
-setup-av1_qsv-0002.sh
-setup-av1_vaapi-0001.sh
-setup-av1_vaapi-0002.sh
-setup-libaom_av1-0001.sh
-setup-libaom_av1-0002.sh
-setup-librav1e-0001.sh
-setup-librav1e-0002.sh
-setup-libsvtav1-0001.sh
-setup-libsvtav1-0002.sh
+$ ./setup-av1_amf.sh 1000
+$ ./setup-av1_nvenc.sh 1000
+$ ./setup-av1_qsv.sh 1000
+$ ./setup-av1_vaapi.sh 1000
+$ ./setup-libaom_av1.sh 1000
+$ ./setup-librav1e.sh 1000
+$ ./setup-libsvtav1.sh 1000
+
+You can also find more test AV1 videos at 05-mkv and 08-smpte:
+
+$ cd ../05-mkv
+$ ./setup-custom-codecs-mkv.sh libopus libaom-av1 1000
+
+$ cd ../08-smpte
+$ ./setup-mkv-custom-codecs.sh libopus libaom-av1 1000
+
+Instead of libaom-av1, you can replace this with librav1e, libsvtav1, av1_nvenc,
+av1_qsv, av1_amf, and av1_vaapi.
 
 -----------------------------------------------
 
@@ -32,4 +36,6 @@ Website Links:
 https://aomedia.org/av1-features/
 https://aomediacodec.github.io/av1-spec/av1-spec.pdf
 https://en.wikipedia.org/wiki/AV1
+https://github.com/topics/av1
+https://github.com/SPBTV/video_av1_samples
 
